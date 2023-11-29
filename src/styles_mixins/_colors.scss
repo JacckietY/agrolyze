@@ -1,0 +1,34 @@
+$light-color: #ffffff;
+$dark-color: #000000;
+
+$high-emphasis-opacity: .87;
+$medium-emphasis-opacity: .60;
+$disabled-opacity: .38;
+
+@mixin color($color, $opacity) {
+    color: rgba($color, $opacity);
+}
+
+.colors-dark-text-high-emphasis {
+    @include color($dark-color, $high-emphasis-opacity);
+}
+
+.colors-dark-text-medium-emphasis {
+    @include color($dark-color, $medium-emphasis-opacity);
+}
+
+.colors-dark-text-disabled {
+    @include color($dark-color, $disabled-opacity);
+}
+
+.colors-light-text-high-emphasis {
+    @include color($light-color, $high-emphasis-opacity);
+}
+
+.colors-light-text-medium-emphasis {
+    @include color($light-color, $medium-emphasis-opacity);
+}
+
+.colors-light-text-disabled {
+    @include color($light-color, $disabled-opacity);
+}

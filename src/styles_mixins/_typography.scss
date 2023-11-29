@@ -1,0 +1,116 @@
+$font-size-conversion-ratio: 0.0625rem;
+$font-leading-conversion-ratio: 1.4285;
+$px-to-rem: 16;
+
+@mixin font-size($size) {
+    font-size: $size * $font-size-conversion-ratio !important;
+}
+
+@mixin font-letter-spacing($tracking, $size) {
+    letter-spacing: calc($tracking / $size * 1rem) !important;
+}
+
+@mixin font-leading($size) {
+    line-height: calc($size * $font-leading-conversion-ratio / $px-to-rem * 1rem) !important;
+}
+
+@mixin font($tracking, $size) {
+    @include font-size($size);
+    @include font-letter-spacing($tracking, $size);
+    @include font-leading($size);
+}
+
+@mixin font-light {
+    font-weight: 300 !important;
+}
+
+@mixin font-regular {
+    font-weight: 400 !important;
+}
+
+@mixin font-medium {
+    font-weight: 500 !important;
+}
+
+@mixin margin($margin) {
+    margin: {
+        left: 0;
+        top: $margin;
+        right: 0;
+        bottom: $margin;
+    };
+}
+
+*[class^='typography-'], *[class*='typography-']{
+
+    &.typography-h1 {
+        @include font(-.16, 96);
+        @include font-light;
+    }
+
+    &.typography-h2 {
+        @include font(-.08, 60);
+        @include font-light;
+    }
+
+    &.typography-h3 {
+        @include font(0, 48);
+        @include font-regular;
+    }
+
+    &.typography-h4 {
+        @include font(.07, 34);
+        @include font-regular;
+    }
+
+    &.typography-h5 {
+        @include font(0, 24);
+        @include font-regular;
+        @include margin(12px);
+    }
+
+    &.typography-h6 {
+        @include font(.08, 20);
+        @include font-medium;
+        @include margin(12px);
+    }
+
+    &.typography-subtitle-1 {
+        @include font(.09, 16);
+        @include font-regular;
+    }
+
+    &.typography-subtitle-2 {
+        @include font(.07, 14);
+        @include font-regular;
+    }
+
+    &.typography-body-1 {
+        @include font(.28, 16);
+        @include font-regular;
+    }
+
+    &.typography-body-2 {
+        @include font(.18, 14);
+        @include font-regular;
+    }
+
+    &.typography-button {
+        @include font(.96, 14);
+        @include font-medium;
+        text-transform: uppercase !important;
+    }
+
+    &.typography-caption {
+        @include font(.33, 12);
+        @include font-regular;
+    }
+
+    &.typography-overline {
+        @include font(1.5, 10);
+        @include font-regular;
+        text-transform: uppercase !important;
+    }
+}
+
+

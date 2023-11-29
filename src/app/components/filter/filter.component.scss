@@ -1,0 +1,55 @@
+form {
+    #clients-chips {
+        mat-chip-grid {
+            mat-chip-row {
+                    ::ng-deep {
+                        .mdc-evolution-chip__text-label {
+                            text-overflow: ellipsis;
+                            overflow: hidden;
+                            min-width: 140px;
+                            max-width: 260px;
+                            height: 1.2em;
+                            white-space: nowrap;
+                        }
+                    }
+            }
+        }
+    }
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    padding: 10px;
+
+    mat-form-field,
+    .filter-item {
+        width: 100%;
+    }
+}
+
+.dates-wrapper,
+.amounts-wrapper {
+    display: flex;
+    flex-direction: row;
+
+    .item-field {
+        max-width: 160px;
+        margin-right: 10px;
+    }
+}
+
+.reset-container {
+    padding-bottom: 15px;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.12);
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+}
+
+.report-container {
+    button {
+        width: 100%;
+    }
+}

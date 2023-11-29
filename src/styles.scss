@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+
+// html, body { height: 100%; }
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import "styles_mixins/shared_mixins";
+@import "styles_mixins/reboot";
+@import "styles_mixins/typography";
+@import "styles_mixins/colors";
+@import "styles_mixins/sidenav";
+@import "styles_mixins/mat";
+//@import "~@ng-select/ng-select/themes/material.theme.css";
+
+@include global-styles();

@@ -1,0 +1,49 @@
+<div class="table-wrapper">
+    <table mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="date">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> Date </th>
+            <td [ngClass]="{'infected': element.isInfected}" mat-cell *matCellDef="let element">{{element.date | date:"short"}}</td>
+        </ng-container>
+        <ng-container matColumnDef="airTempMin">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> Min Air Temp °C</th>
+            <td [ngClass]="{'infected': element.isInfected}" mat-cell *matCellDef="let element">{{element.airTempMin}}</td>
+        </ng-container>
+        <ng-container matColumnDef="airTempMax">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> Max Air Temp °C</th>
+            <td [ngClass]="{'infected': element.isInfected}" mat-cell *matCellDef="let element">{{element.airTempMax}}</td>
+        </ng-container>
+        <ng-container matColumnDef="airTempAvg">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> Average Air Temp °C</th>
+            <td [ngClass]="{'infected': element.isInfected}" mat-cell *matCellDef="let element">{{element.airTempAvg}}</td>
+        </ng-container>
+        <ng-container matColumnDef="relHumidity">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> Related Humidity %</th>
+            <td [ngClass]="{'infected': element.isInfected}" mat-cell *matCellDef="let element">{{element.relHumidity}}</td>
+        </ng-container>
+        <ng-container matColumnDef="precipitation">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> precipitation (mm)</th>
+            <td [ngClass]="{'infected': element.isInfected}" mat-cell *matCellDef="let element">{{element.precipitation}}</td>
+        </ng-container>
+        <ng-container matColumnDef="leafWetness">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> Leaf Wetness (min)</th>
+            <td [ngClass]="{'infected': element.isInfected}" mat-cell *matCellDef="let element">{{element.leafWetness}}</td>
+        </ng-container>
+        <ng-container matColumnDef="infection">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> Infection %</th>
+            <td [ngClass]="{'infected': element.isInfected}" mat-cell *matCellDef="let element">{{element.infection}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef></th>
+            <td [ngClass]="{'infected': element.isInfected}" mat-cell *matCellDef="let element">
+                <button mat-icon-button (click)="deleteDesease(element.id)">
+                    <mat-icon fontIcon="delete"></mat-icon>
+                </button>
+            </td>
+        </ng-container>
+        
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
