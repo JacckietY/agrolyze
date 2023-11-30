@@ -1,4 +1,4 @@
-export class DeseaseModel {
+export class NoteModel {
     public date: Date;
     public airTempAvg: number;
     public airTempMax: number;

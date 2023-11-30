@@ -1,3 +1,8 @@
+<div class="navbar">
+    <button mat-flat-button class="addButton" (click)="navigateToAdd()">
+        Add new note<mat-icon>add</mat-icon>
+    </button>
+</div>
 <div class="table-wrapper">
     <table mat-table [dataSource]="dataSource" matSort>
         <ng-container matColumnDef="date">
@@ -34,9 +39,9 @@
         </ng-container>
 
         <ng-container matColumnDef="action">
-            <th mat-header-cell mat-sort-header *matHeaderCellDef></th>
+            <th mat-header-cell *matHeaderCellDef></th>
             <td [ngClass]="{'infected': element.isInfected}" mat-cell *matCellDef="let element">
-                <button mat-icon-button (click)="deleteDesease(element.id)">
+                <button mat-icon-button (click)="deleteNote(element.id)">
                     <mat-icon fontIcon="delete"></mat-icon>
                 </button>
             </td>
@@ -46,4 +51,8 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+
+    
 </div>
+
+<mat-paginator [pageSizeOptions]="pageSizeOptions" showFirstLastButtons></mat-paginator>

@@ -1,0 +1,182 @@
+@use "@angular/material" as mat;
+@import "variables";
+
+@mixin header-toolbar {
+    mat-toolbar {
+        display: flex;
+        justify-content: space-between;
+
+        .filler {
+            flex: 1;
+        }
+
+        .logout-wrapper {
+            margin-left: 25px;
+            display: flex;
+            align-items: center;
+
+            .user-name {
+                font-size: 16px;
+            }
+
+            @media screen and (max-width: 768px) {
+                .user-name {
+                    max-width: 150px;
+                    text-overflow: ellipsis;
+                    overflow-x: hidden;
+                }
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 12px;
+            margin-right: 25px;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+@mixin footer {
+    .footer {
+        position: fixed;
+        background-color: #000;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 5px 50px;
+        display: flex;
+        justify-content: center;
+        color: #fff;
+        font-size: 12px;
+        .copyright {
+            flex: 1;
+            text-align: center;
+        }
+    }
+}
+
+@mixin table-list() {
+    .table-wrapper td {
+        font-size: 16px;
+    }
+}
+
+@mixin global-styles {
+    html,
+    body {
+        height: 100%;
+    }
+    body {
+        margin: 0;
+        font-family: "Helvetica Neue", Roboto, sans-serif;
+        background-color: $bg-color;
+    }
+
+    .error-snackbar {
+        & > div.mdc-snackbar__surface {
+            background: #ff2020;
+        }
+        button > span.mdc-button__label {
+            color: rgba(255, 255, 255, 0.87);
+        }
+    }
+}
+
+@mixin material-theme-override {
+    @include mat.core();
+
+    $md-bluepalette: (
+        50: #e7eff6,
+        100: #c2d7e9,
+        200: #99bddb,
+        300: #70a2cd,
+        400: #528ec2,
+        500: #337ab7,
+        600: #2e72b0,
+        700: #2767a7,
+        800: #205d9f,
+        900: #144a90,
+        A100: #c4dcff,
+        A200: #91bdff,
+        A400: #5e9eff,
+        A700: #458fff,
+        contrast: (
+            50: #000000,
+            100: #000000,
+            200: #000000,
+            300: #000000,
+            400: #000000,
+            500: #ffffff,
+            600: #ffffff,
+            700: #ffffff,
+            800: #ffffff,
+            900: #ffffff,
+            A100: #000000,
+            A200: #000000,
+            A400: #000000,
+            A700: #000000,
+        ),
+    );
+
+    $md-graypalette: (
+        50: #eeeeee,
+        100: #d4d4d4,
+        200: #b8b8b8,
+        300: #9b9b9b,
+        400: #858585,
+        500: #707070,
+        600: #686868,
+        700: #5d5d5d,
+        800: #535353,
+        900: #414141,
+        A100: #f5a9a9,
+        A200: #f07b7b,
+        A400: #ff3a3a,
+        A700: #ff2020,
+        contrast: (
+            50: #000000,
+            100: #000000,
+            200: #000000,
+            300: #000000,
+            400: #000000,
+            500: #ffffff,
+            600: #ffffff,
+            700: #ffffff,
+            800: #ffffff,
+            900: #ffffff,
+            A100: #000000,
+            A200: #000000,
+            A400: #ffffff,
+            A700: #ffffff,
+        ),
+    );
+
+    // Define the palettes for your theme using the Material Design palettes available in palette.scss
+    // (imported above). For each palette, you can optionally specify a default, lighter, and darker
+    // hue. Available color palettes: https://material.io/design/color/
+    $client-portal-primary: mat.define-palette($md-bluepalette);
+    $client-portal-accent: mat.define-palette($md-graypalette);
+
+    // The warn palette is optional (defaults to red).
+    //$client-portal-warn: mat.define-palette(mat.$red-palette);
+
+    // Create the theme object. A theme consists of configurations for individual
+    // theming systems such as "color" or "typography".
+    $client-portal-theme: mat.define-light-theme(
+        (
+            color: (
+                primary: $client-portal-primary,
+                accent: $client-portal-accent,
+            ),
+        )
+    );
+
+    // Include theme styles for core and each component used in your app.
+    // Alternatively, you can import and @include the theme mixins for each component
+    // that you are using.
+    @include mat.all-component-themes($client-portal-theme);
+}

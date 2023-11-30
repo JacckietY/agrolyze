@@ -7,11 +7,11 @@ import { MaterialModules } from './material-module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
-import { DeseasesListComponent } from './components/deseases-list/deseases-list.component';
+import { NotesListComponent } from './components/notes-list/notes-list.component';
 import { HomeComponent } from './components/home/home.component';
 import { FilterComponent } from './components/filter/filter.component';
-import { DeseasesService } from './services/deseases.service';
-import { NewDeseaseComponent } from './components/new-desease/new-desease.component';
+import { NotesService } from './services/notes.service';
+import { NewNoteComponent } from './components/new-note/new-note.component';
 
 
 const firebaseConfig = {
@@ -26,10 +26,10 @@ const firebaseConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    DeseasesListComponent,
+    NotesListComponent,
     HomeComponent,
     FilterComponent,
-    NewDeseaseComponent
+    NewNoteComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +39,7 @@ const firebaseConfig = {
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
     provideFirestore(() => getFirestore()),
   ],
-  providers: [DeseasesService],
+  providers: [NotesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
