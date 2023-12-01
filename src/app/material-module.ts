@@ -40,6 +40,7 @@ import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
 //import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   exports: [
@@ -83,6 +84,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     MatTreeModule,
     OverlayModule,
     ScrollingModule,
+    ReactiveFormsModule,
     //MatMomentDateModule,
     DragDropModule
   ]

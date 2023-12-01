@@ -1,9 +1,22 @@
-@import "../styles_mixins/shared_mixins";
+@import "../shared_mixins";
 
 @include header-toolbar();
 
+// .home-link {
+//     :hover {
+//         cursor: pointer;
+//     }
+// }
+// .content{
+//     height: calc(100vh - 65px);
+//     display: flex;
+// }
 
-.content{
-    height: calc(100vh - 65px);
-    display: flex;
+mat-toolbar {
+    min-height: 64px;
+    a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 24px;
+    }
 }

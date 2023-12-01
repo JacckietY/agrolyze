@@ -8,5 +8,5 @@ export class NoteModel {
     public leafWetness: number;
     public infection: number;
     public isInfected: boolean | null;
-    public id: string;
+    public id?: string;
 }

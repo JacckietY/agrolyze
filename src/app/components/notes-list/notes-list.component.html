@@ -10,31 +10,31 @@
             <td [ngClass]="{'infected': element.isInfected}" mat-cell *matCellDef="let element">{{element.date | date:"short"}}</td>
         </ng-container>
         <ng-container matColumnDef="airTempMin">
-            <th mat-header-cell mat-sort-header *matHeaderCellDef> Min Air Temp °C</th>
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> Min Air Temp °C </th>
             <td [ngClass]="{'infected': element.isInfected}" mat-cell *matCellDef="let element">{{element.airTempMin}}</td>
         </ng-container>
         <ng-container matColumnDef="airTempMax">
-            <th mat-header-cell mat-sort-header *matHeaderCellDef> Max Air Temp °C</th>
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> Max Air Temp °C </th>
             <td [ngClass]="{'infected': element.isInfected}" mat-cell *matCellDef="let element">{{element.airTempMax}}</td>
         </ng-container>
         <ng-container matColumnDef="airTempAvg">
-            <th mat-header-cell mat-sort-header *matHeaderCellDef> Average Air Temp °C</th>
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> Average Air Temp °C </th>
             <td [ngClass]="{'infected': element.isInfected}" mat-cell *matCellDef="let element">{{element.airTempAvg}}</td>
         </ng-container>
         <ng-container matColumnDef="relHumidity">
-            <th mat-header-cell mat-sort-header *matHeaderCellDef> Related Humidity %</th>
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> Related Humidity % </th>
             <td [ngClass]="{'infected': element.isInfected}" mat-cell *matCellDef="let element">{{element.relHumidity}}</td>
         </ng-container>
         <ng-container matColumnDef="precipitation">
-            <th mat-header-cell mat-sort-header *matHeaderCellDef> precipitation (mm)</th>
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> Precipitation (mm) </th>
             <td [ngClass]="{'infected': element.isInfected}" mat-cell *matCellDef="let element">{{element.precipitation}}</td>
         </ng-container>
         <ng-container matColumnDef="leafWetness">
-            <th mat-header-cell mat-sort-header *matHeaderCellDef> Leaf Wetness (min)</th>
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> Leaf Wetness (min) </th>
             <td [ngClass]="{'infected': element.isInfected}" mat-cell *matCellDef="let element">{{element.leafWetness}}</td>
         </ng-container>
         <ng-container matColumnDef="infection">
-            <th mat-header-cell mat-sort-header *matHeaderCellDef> Infection %</th>
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> Infection % </th>
             <td [ngClass]="{'infected': element.isInfected}" mat-cell *matCellDef="let element">{{element.infection}}</td>
         </ng-container>
 
