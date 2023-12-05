@@ -7,11 +7,17 @@ import { MaterialModules } from './material-module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireModule } from '@angular/fire/compat';
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { NotesListComponent } from './components/notes-list/notes-list.component';
 import { HomeComponent } from './components/home/home.component';
 import { FilterComponent } from './components/filter/filter.component';
 import { NotesService } from './services/notes.service';
 import { NewNoteComponent } from './components/new-note/new-note.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { RegistrationComponent } from './components/registration/registration.component';
+import { AuthService } from './services/auth.service';
 
 
 const firebaseConfig = {
@@ -29,17 +35,23 @@ const firebaseConfig = {
     NotesListComponent,
     HomeComponent,
     FilterComponent,
-    NewNoteComponent
+    NewNoteComponent,
+    SignInComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModules,
+    AngularFireModule.initializeApp(firebaseConfig),
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
     provideFirestore(() => getFirestore()),
+    AngularFireAuthModule,
   ],
-  providers: [NotesService],
+  providers: [NotesService, AuthService,
+    { provide: FIREBASE_OPTIONS, useValue: firebaseConfig }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

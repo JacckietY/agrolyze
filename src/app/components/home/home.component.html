@@ -1,14 +1,6 @@
 <mat-sidenav-container class="home-container" [style.marginTop.px]="mobileQuery.matches ? 65 : 65">
-    <mat-sidenav #snav opened [mode]="mobileQuery.matches ? 'over' : 'side'"
-    [fixedInViewport]="mobileQuery.matches" fixedTopGap="mobileQuery.matches ? 65 : 65" (openedStart)="panelOpened = true" (closedStart)="panelOpened = false">
-        <app-filter (filter)="filterChanged($event)"></app-filter>
-    </mat-sidenav>
 
     <mat-sidenav-content>
-        <button mat-icon-button (click)="snav.toggle()">
-            <mat-icon class="chevron-icon" *ngIf="panelOpened">chevron_left</mat-icon>
-            <mat-icon class="chevron-icon" *ngIf="!panelOpened">chevron_right</mat-icon>
-        </button>
         <app-notes-list></app-notes-list>
     </mat-sidenav-content>
 </mat-sidenav-container>

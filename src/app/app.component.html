@@ -1,10 +1,11 @@
 <mat-toolbar color="primary">
-  <span class="home-link"><a routerLink="''">Agrolyze</a></span>
+  <span class="home-link"><a routerLink="home">Agrolyze</a></span>
   <span>
       <span class="filler"></span>
       <span class="logout-wrapper">
-          <span class="user-name"></span>
-          <button mat-icon-button>
+          <span *ngIf="authService.uid | async as uid" class="user-name">{{uid}}</span>
+          <span *ngIf="authService.isAdmin | async" class="user-name"><mat-icon>star</mat-icon></span>
+          <button mat-icon-button (click)="logOut()">
               <mat-icon>logout</mat-icon>
           </button>
       </span>

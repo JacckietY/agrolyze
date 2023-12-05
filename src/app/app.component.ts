@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -10,14 +11,14 @@ export class AppComponent {
   title = 'agrolyze';
 
   constructor(
-    private readonly router: Router
+    private readonly router: Router,
+    public authService: AuthService
   ) {
     
   }
 
-  gotoHome() {
-    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-    this.router.onSameUrlNavigation = 'reload';
-    this.router.navigate(['/']);
+  public logOut() {
+    this.authService.logout();
+    this.router.navigateByUrl('sign-in');
   }
 }

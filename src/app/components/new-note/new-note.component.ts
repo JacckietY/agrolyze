@@ -56,6 +56,6 @@ export class NewNoteComponent implements OnInit{
   }
 
   public onCancel() {
-    this.router.navigate(['']);
+    this.router.navigate(['home']);
   }
 }
